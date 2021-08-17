@@ -1,0 +1,29 @@
+<aside class="col-sm-4"></aside>
+<aside class="col-sm-4">
+  <div class="login-form">
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+          <h2 class="text-center">Log in</h2>
+          <div class="alert alert-danger" *ngIf="loginError">
+            <strong>Error!</strong> Please enter a valid Username and Password.
+          </div>
+          <div class="form-group" [ngClass]="{ 'has-error': invalidUserName() }">
+              <input type="text" class="form-control" formControlName="userName" placeholder="UserName" required="required" id="username" name="userName" >
+              <p *ngIf="invalidUserName()" id="user_name_error" class="help-block">Please enter a valid Username.</p>
+          </div>
+          <div class="form-group" [ngClass]="{ 'has-error': invalidPassword() }">
+              <input type="password" class="form-control" formControlName="password" placeholder="Password" required="required" id="password" name="password" >
+              <p *ngIf="invalidPassword()" id="password_error" class="help-block">Please enter a valid Password.</p>
+          </div>
+          <div class="form-group  has-error" >
+              <button [disabled]="loading" type="submit" class="btn btn-primary btn-block">Log in</button>
+              <img *ngIf="loading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+          </div>
+          <div class="clearfix">
+              <label class="pull-left checkbox-inline"><input type="checkbox"> Remember me</label>
+              <a href="#" class="pull-right">Forgot Password?</a>
+          </div>
+      </form>
+      <p class="text-center"><a href="#">Create an Account</a></p>
+  </div>
+</aside>
+<aside class="col-sm-4"></aside>
